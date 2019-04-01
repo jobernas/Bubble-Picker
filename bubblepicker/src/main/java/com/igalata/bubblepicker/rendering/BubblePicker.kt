@@ -60,6 +60,8 @@ class BubblePicker : GLSurfaceView {
             renderer.centerImmediately = value
         }
 
+    var swipeMoveSpeed = 1.5f
+
     private val renderer = PickerRenderer(this)
     private var startX = 0f
     private var startY = 0f
@@ -91,7 +93,7 @@ class BubblePicker : GLSurfaceView {
             }
             MotionEvent.ACTION_MOVE -> {
                 if (isSwipe(event)) {
-                    renderer.swipe(previousX - event.x, previousY - event.y)
+                    renderer.swipe((previousX - event.x) * swipeMoveSpeed, (previousY - event.y) * swipeMoveSpeed)
                     previousX = event.x
                     previousY = event.y
                 } else {

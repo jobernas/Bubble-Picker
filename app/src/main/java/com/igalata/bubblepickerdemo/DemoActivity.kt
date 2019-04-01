@@ -63,6 +63,7 @@ class DemoActivity : AppCompatActivity() {
         images.recycle()
 
         picker.bubbleSize = 20
+        picker.swipeMoveSpeed = 2f
         picker.listener = object : BubblePickerListener {
             override fun onBubbleSelected(item: PickerItem) = toast("${item.title} selected")
 
